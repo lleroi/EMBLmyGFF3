@@ -735,6 +735,9 @@ class EMBL( object ):
                     # replace locus_tag_suffix by the value of the locus_tag qualifier if this one exists
                     for qualifier in feature.qualifiers:
                         if 'locus_tag' == qualifier.lower():
+                            #LL
+                            print(locus_tag)
+                            print(qualifier)
                             locus_tag_suffix = "%s" % "_".join(feature.qualifiers[qualifier])
                             #LL
                             print(feature.qualifiers[qualifier])
