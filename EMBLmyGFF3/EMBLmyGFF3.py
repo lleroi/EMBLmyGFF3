@@ -724,10 +724,7 @@ class EMBL( object ):
                         cpt_locus = self.PREVIOUS_VALUES['locus_numbering_start']
 
                     locus_tag_suffix="LOCUS"+str(cpt_locus)
-                    #LL
-                    print(locus_tag_suffix)
-                    # LOCUS1
-                    # now the locus has been used we can increment the locus value and add padding when true
+                     # now the locus has been used we can increment the locus value and add padding when true
                     if self.locus_zero_padding:
                         self.PREVIOUS_VALUES['locus_numbering_start'] = str(int(self.PREVIOUS_VALUES['locus_numbering_start']) + 1).zfill(padsize)
                     else:
@@ -736,20 +733,9 @@ class EMBL( object ):
                     # replace locus_tag_suffix by the value of the locus_tag qualifier if this one exists
                     for qualifier in feature.qualifiers:
                         if 'locus_tag' == qualifier.lower():
-                            #LL
-                            print(locus_tag)
-                            # None
-                            print(qualifier)
-                            # locus_tag
-                            #LL
-                            print(feature.qualifiers[qualifier])
-                            # feature.qualifiers[locus_tag] = 'WSSABALVE_00622'
-                            # locus_tag_suffix = WSSABALVE_00622
                             if len(feature.qualifiers[qualifier]) == 1:
                                 if feature.qualifiers[qualifier][0].split("_")[0] == locus_tag_prefix:
                                     locus_tag_suffix = feature.qualifiers[qualifier][0].split("_")[1]
-                                    #LL
-                                    print(f"new LOCUS SUFFIXE : {locus_tag_suffix}")
                                 else:
                                     locus_tag_suffix = "%s" % "_".join(feature.qualifiers[qualifier])
                             break
