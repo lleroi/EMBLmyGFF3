@@ -745,7 +745,7 @@ class EMBL( object ):
                             print(feature.qualifiers[qualifier])
                             # feature.qualifiers[locus_tag] = 'WSSABALVE_00622'
                             # locus_tag_suffix = WSSABALVE_00622
-                            if feature.qualifiers[qualifier].length() == 1:
+                            if len(feature.qualifiers[qualifier]) == 1:
                                 if feature.qualifiers[qualifier][0].split("_")[0] == locus_tag_prefix:
                                     locus_tag_suffix = feature.qualifiers[qualifier][0].split("_")[1]
                                     #LL
